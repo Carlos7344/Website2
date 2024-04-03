@@ -93,13 +93,86 @@ function drawBricks() {
 
 //Draw everything
 function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawPaddle()
     drawBall()
     drawScore()
     drawBricks()
 }
 
-draw()
+// Move paddle on canvas
+function movePaddle() {
+    paddle.x = paddle.x + paddle.dx
+
+    // wall dectection
+    if (paddle.x < 0 ) (
+        paddle.x = 0
+    )
+    if (paddle.x + paddle.w > canvas.width) {
+        paddle.x = canvas.width - paddle.w
+    }
+}
+
+// Keydown Event
+function keyDown(e) {
+    // console.log(e.key)
+    if (e.key == 'ArrowRight' || e.key == 'Right') {
+        paddle.dx = paddle.speed
+    }
+    if (e.key == 'ArrowLeft' || ekey == 'Left') {
+        paddle.dx = -paddle.speed
+    }
+}
+
+//Keyup event
+function keyUp(e) {
+    if (e.key == 'ArrowRight' || e.key == 'Right' || e.key == 'ArrowLeft' || ekey == 'Left') {
+        paddle.dx = 0
+    }
+
+}
+
+function moveBall() {
+    ball.x = ball.x + ball.dx
+    ball.y = ball.y + ball.dy
+
+    // wall collision (top)
+    if (ball.y + ball.size < 0) {
+        ball.dy = -1 * ball.dy
+    }
+
+    // wall collision (right)
+    if (ball.x + ball.size > canvas.width) {
+        ball.dx = -1 * ball.dx
+    }
+
+    // wall collision (bottom)
+    if (ball.y + ball.size > canvas.height) {
+        ball.dy = -1 * ball.dy
+        showAllBricks()
+        score = 0
+    }
+
+    //wall collision (left)
+    if (ball.x + ball.size < 0)
+    {
+        ball.dx = -1 * ball.dx
+    }
+}
+
+//Keyboard event handlers
+document.addEventListener('keydown', keyDown)
+document.addEventListener('keyup', keyUp)
+
+//Update the canvas drawing and animation
+function update() {
+    moveBall()
+    movePaddle()
+    draw()
+    requestAnimationFrame(update)
+}
+
+update()
 
 
 rulesBtn.addEventListener('click', () => {
@@ -109,3 +182,53 @@ rulesBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     rules.classList.remove('show')
 })
+
+//
+//
+//paddle collision
+if (
+    ball.x - ball.size > paddle.x &&
+    ball.x + ball.size < paddle.x + paddle.w &&
+    ball.y + ball.size > paddle.y
+) {
+    ball.dy = -1 * ball.speed
+}
+
+
+//brick collision
+ bricks.forEach(column => {
+    column.forEach(brick => {
+        if(brick.visible){
+            if (
+                ball.x - ball.size > brick.x && //left brick side
+                ball.x + ball.size < brick.x + brick.w && //right side
+                ball.y + ball.size > brick.y && //top
+                ball.y - ball.size < brick.y + brick.h //bottom
+            ) {
+                ball.dy = -1 * ball.dy
+                brick.visible = false
+                increaseScore()
+            }
+
+        }
+    })
+ })
+
+}
+//this will increase the score
+ function increaseScore() {
+    score++ // score = score + 1
+
+    if (score == brickRowCount * brickColumnCount) {
+        score = 0
+        showAllBricks()
+    }
+ }
+
+ function showAllBricks() {
+    bricks.forEach(column => {
+        column.forEach(brick => {
+            brick.visible = true
+        })
+    })
+ }
