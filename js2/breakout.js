@@ -212,10 +212,6 @@ closeBtn.addEventListener('click', () => {
     rules.classList.remove('show')
 })
 
-//
-//
-
-}
 //this will increase the score
  function increaseScore() {
     score++ // score = score + 1
