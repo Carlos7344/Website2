@@ -158,34 +158,7 @@ function moveBall() {
     {
         ball.dx = -1 * ball.dx
     }
-}
-
-//Keyboard event handlers
-document.addEventListener('keydown', keyDown)
-document.addEventListener('keyup', keyUp)
-
-//Update the canvas drawing and animation
-function update() {
-    moveBall()
-    movePaddle()
-    draw()
-    requestAnimationFrame(update)
-}
-
-update()
-
-
-rulesBtn.addEventListener('click', () => {
-    rules.classList.add('show')
-})
-
-closeBtn.addEventListener('click', () => {
-    rules.classList.remove('show')
-})
-
-//
-//
-//paddle collision
+    //paddle collision
 if (
     ball.x - ball.size > paddle.x &&
     ball.x + ball.size < paddle.x + paddle.w &&
@@ -213,6 +186,34 @@ if (
         }
     })
  })
+
+}
+
+//Keyboard event handlers
+document.addEventListener('keydown', keyDown)
+document.addEventListener('keyup', keyUp)
+
+//Update the canvas drawing and animation
+function update() {
+    moveBall()
+    movePaddle()
+    draw()
+    requestAnimationFrame(update)
+}
+
+update()
+
+
+rulesBtn.addEventListener('click', () => {
+    rules.classList.add('show')
+})
+
+closeBtn.addEventListener('click', () => {
+    rules.classList.remove('show')
+})
+
+//
+//
 
 }
 //this will increase the score
