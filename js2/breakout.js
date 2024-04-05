@@ -151,6 +151,7 @@ function moveBall() {
         ball.dy = -1 * ball.dy
         showAllBricks()
         score = 0
+
     }
 
     //wall collision (left)
@@ -199,6 +200,11 @@ function update() {
     movePaddle()
     draw()
     requestAnimationFrame(update)
+    if (ball.y + ball.size > canvas.height) {
+        ball.dy = -1 * ball.dy
+        return 0;
+    }
+
 }
 
 update()
@@ -229,3 +235,4 @@ closeBtn.addEventListener('click', () => {
         })
     })
  }
+
