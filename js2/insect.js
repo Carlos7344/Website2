@@ -17,7 +17,7 @@ choose_insect_btns.forEach(btn => {
     btn.addEventListener('click', () => {
         const img = btn.querySelector('img')
         const alt = img.getAttribute('alt')
-        const src = img,getAttribute('src')
+        const src = img.getAttribute('src')
         screens[1].classList.add('up')
         selected_insect = {src, alt}
         setTimeout(createInsect, 1000)
@@ -25,6 +25,9 @@ choose_insect_btns.forEach(btn => {
     })
 })
 
+function startGame() {
+    setInterval(in)
+}
 
 function createInsect() {
     const insect = document.createElement('div')
@@ -40,6 +43,13 @@ function createInsect() {
 function catchInsect() {
     increaseScore()
     this.classList.add('caught')
+    setTimeout(() => this.remove(), 2000)
+    addInsects()
+}
+
+function addInsects() {
+    setTimeout(createInsect, 1000)
+    setTimeout(createInsect, 1500)
 }
 
 function increaseScore() {
