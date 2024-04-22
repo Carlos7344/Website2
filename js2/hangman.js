@@ -42,6 +42,16 @@ window.addEventListener('keydown', e => {
                 correctLetters.push(letter)
 
                 displayWord()
+            } else {
+                showNotification()
+            }
+        } else {
+            if (!wrongLetters.includes(letter)) {
+                wrongLetters.push(letter)
+
+                updateWrongLettersEl()
+            } else {
+                showNotification()
             }
         }
     }
