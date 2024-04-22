@@ -24,6 +24,8 @@ function displayWord() {
       `).join('')}
 
     `
+    const innerword = wordEl.innerText.()
+    console.log(wordEl.innerText.replace(/\n/g, ''))
 }
 
 displayWord() {
