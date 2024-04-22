@@ -24,8 +24,11 @@ function displayWord() {
       `).join('')}
 
     `
-    const innerword = wordEl.innerText.()
-    console.log(wordEl.innerText.replace(/\n/g, ''))
+    const innerword = wordEl.innerText.replace(/\n/g, ''))
+    if (innerWord == selectedWord) {
+        finalMessage.innerText = 'Congratulations! You won!'
+        popup.style.display
+    }
 }
 
 displayWord() {
