@@ -3,7 +3,7 @@ const wrongLettersEl = document.getElementById('wrong-letters')
 const playAgainBtn = document.getElementById('play-button')
 const popup = document.getElementById('popup-container')
 const notification = document.getElementById('notification-container')
-const finalMessage = document.getElementByid('final-message')
+const finalMessage = document.getElementById('final-message')
 const figureParts = document.querySelectorAll('.figure-part')
 
 const word = ['application', 'programming', 'interface', 'wizard']
@@ -16,7 +16,7 @@ const wrongLetters = []
 
 // Show Hidden Word
 function displayWord() {
-    wordEl.innerHTML = `
+    const wordEl.innerHTML = `
       ${selectedWord.split('').map(letter => `
         <span class="letter">
             ${correctLetters.includes(letter) ? letter : ''}
@@ -24,7 +24,7 @@ function displayWord() {
       `).join('')}
 
     `
-    const innerword = wordEl.innerText.replace(/\n/g, ''))
+    const innerword = wordEl.innerText.replace(/\n/g, '')
     if (innerWord == selectedWord) {
         finalMessage.innerText = 'Congratulations! You won!'
         popup.style.display = 'flex'
@@ -50,7 +50,7 @@ function updateWrongLettersEl() {
     })
     //Check if lost
     if (wrongLetters.length == figureParts.length){
-        finalMessage.innerText = 'Unfortunately you lost!"
+        finalMessage.innerText = 'Unfortunately you lost!'
         popup.style.display = 'flex'
     }
 }
@@ -106,6 +106,4 @@ playAgainBtn.addEventListener('click', () => {
  popup.style.display = 'none'
 })
 
-displayWord() {
-
-}
+displayWord()
