@@ -90,6 +90,9 @@ window.addEventListener('keydown', e => {
     }
 })
 
+
+//Restart game and play again
+
 displayWord() {
 
 }
