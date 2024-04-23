@@ -33,11 +33,12 @@ function displayWord() {
 
 // Update the wrong letters
 function updateWrongLettersEl() {
+    //Display Wrong Letters
     wrongLettersEl.innerHTML = `
       ${wrongLetters.length > 0 ? `<p>Wrong</p>` : ''}
       ${wrongLetters.map(letter => `<span>${letter}</span>`)}
     `
-
+    //dispaly parts
     figureParts.forEach((part, index) => {
         const errors = wrongLetters.length
 
@@ -47,6 +48,8 @@ function updateWrongLettersEl() {
             part.style.display = 'none'
         }
     })
+    //Check if lost
+    
 }
 
 //Show Notification
