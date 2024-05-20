@@ -242,3 +242,9 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
+ document.addEventListener('keydown', startGame)
+
+ function startGame() {
+     document.removeEventListener('keydown', startGame)
+     update()
+ }
