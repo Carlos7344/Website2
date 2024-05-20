@@ -236,3 +236,42 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
+ let gameStarted = false;
+ const startMessage = document.getElementById('start-message');
+
+
+ function startGame() {
+     gameStarted = true;
+     startMessage.classList.remove('show');
+     update();
+ }
+
+
+ startMessage.classList.add('show');
+
+ 
+ function handleKeydown(e) {
+     if (!gameStarted && e.key === ' ') {
+         startGame();
+     } else {
+         keyDown(e);
+     }
+ }
+
+
+ function handleKeyup(e) {
+     keyUp(e);
+ }
+
+
+ document.addEventListener('keydown', handleKeydown);
+ document.addEventListener('keyup', handleKeyup);
+
+ function update() {
+     if (!gameStarted) return;
+     moveBall();
+     movePaddle();
+     draw();
+     requestAnimationFrame(update);
+ }
+ draw();
