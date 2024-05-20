@@ -77,22 +77,5 @@
     color: white;
   }
 
-  #start-message {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: #0095dd;
-    display: none; /* Initially hidden */
-    background-color: white;
-    padding: 10px;
-    border: 2px solid #0095dd;
-    border-radius: 5px;
-    text-align: center;
-}
-
-#start-message.show {
-    display: block;
-}
+  
 
