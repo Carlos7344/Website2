@@ -242,3 +242,27 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
+//Keyboard event handlers
+document.addEventListener('keydown', keyDown)
+document.addEventListener('keyup', keyUp)
+
+
+
+//Update the canvas drawing and animation
+function update() {
+    moveBall()
+    movePaddle()
+    draw()
+    requestAnimationFrame(update)
+}
+
+update()
+
+
+rulesBtn.addEventListener('click', () => {
+    rules.classList.add('show')
+})
+
+closeBtn.addEventListener('click', () => {
+    rules.classList.remove('show')
+})
