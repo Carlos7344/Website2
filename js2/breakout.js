@@ -226,6 +226,12 @@ closeBtn.addEventListener('click', () => {
         score = 0
         showAllBricks()
     }
+    if (score == 45)
+    {
+        ball.dx = 0
+        ball.dy = 0
+        paddle.dx = 0
+    }
  }
 
  function showAllBricks() {
@@ -236,4 +242,3 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
- 
