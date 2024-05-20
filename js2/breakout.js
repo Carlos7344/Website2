@@ -237,41 +237,44 @@ closeBtn.addEventListener('click', () => {
  }
 
  let gameStarted = false;
- const startMessage = document.getElementById('start-message');
+const startMessage = document.getElementById('start-message');
 
+// Function to start the game
+function startGame() {
+    gameStarted = true;
+    startMessage.classList.remove('show');
+    update();
+}
 
- function startGame() {
-     gameStarted = true;
-     startMessage.classList.remove('show');
-     update();
- }
+// Show start message initially
+startMessage.classList.add('show');
 
+// Function to handle keydown events
+function handleKeydown(e) {
+    if (!gameStarted && e.key === ' ') {
+        startGame();
+    } else {
+        keyDown(e);
+    }
+}
 
- startMessage.classList.add('show');
+// Function to handle keyup events
+function handleKeyup(e) {
+    keyUp(e);
+}
 
- 
- function handleKeydown(e) {
-     if (!gameStarted && e.key === ' ') {
-         startGame();
-     } else {
-         keyDown(e);
-     }
- }
+// Attach event listeners
+document.addEventListener('keydown', handleKeydown);
+document.addEventListener('keyup', handleKeyup);
 
+// Update the canvas drawing and animation
+function update() {
+    if (!gameStarted) return; // Prevent the game from running until started
+    moveBall();
+    movePaddle();
+    draw();
+    requestAnimationFrame(update);
+}
 
- function handleKeyup(e) {
-     keyUp(e);
- }
-
-
- document.addEventListener('keydown', handleKeydown);
- document.addEventListener('keyup', handleKeyup);
-
- function update() {
-     if (!gameStarted) return;
-     moveBall();
-     movePaddle();
-     draw();
-     requestAnimationFrame(update);
- }
- draw();
+// Initialize the game but don't start the loop yet
+draw();
