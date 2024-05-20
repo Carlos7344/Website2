@@ -152,12 +152,12 @@ h1 {
     transform: translate(-50%, 150%);
 }
 
-.message2.visible {
+.messagetwo.visible {
     opacity: 1;
     transform: translate(-50%, 150%);
 }
 
-.message3.visible {
+.messagethree.visible {
     opacity: 1;
     transform: translate(-50%, 150%);
 }
