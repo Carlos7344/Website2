@@ -83,10 +83,10 @@ function increaseTime() {
     timeEl.innerHTML = `Time: ${m}:${s}`
     seconds++
     if (score >= 60 && seconds < 30) {
-        message2.classList.add('visible')
+        won.classList.add('visible')
     }
     if (score < 60 && seconds > 30) {
-        message3.classList.add('visible')
+        lost.classList.add('visible')
     }
 }
 
@@ -97,4 +97,3 @@ function getRandomLocation() {
     const y = Math.random() * (height - 200) + 100
     return { x, y }
 }
-
