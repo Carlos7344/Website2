@@ -25,33 +25,23 @@ choose_insect_btn.forEach(btn => {
     })
 })
 
+
 function startGame() {
     setInterval(increaseTime, 1000)
 }
 
-function increaseTime() {
-    let m = Math.floor(seconds / 60)
-    let s = seconds % 60
-    if (m < 10) {
-        m = `0${m}`
-    }
-    if (s < 10) {
-        s = `0${s}`
-    }
-    timeEl.innerHTML = `Time: ${m}:${s}`
-    seconds++
-}
 
 
 function createInsect() {
     const insect = document.createElement('div')
     insect.classList.add('insect')
-    const {x, y} = getRandomLocation()
+    const { x, y } = getRandomLocation()
     insect.style.top = `${y}px`
-    insect.style.top = `${x}px`
-    insect.innerHTML = `<img src="${selected_insect.src}" alt="${selected_insect.alt}" style = "transform: rotate(${Math.random() * 360}deg)" />`
+    insect.style.left = `${x}px`
+    insect.innerHTML = `<img src="${selected_insect.src}" alt="${selected_insect.alt}" style="transform: rotate(${Math.random() * 360}deg)" />`
 
     insect.addEventListener('click', catchInsect)
+
     game_container.appendChild(insect)
 }
 
@@ -71,8 +61,33 @@ function increaseScore() {
     score++
     if (score > 19) {
         message.classList.add('visible')
+
+    }
+    if (score >= 60)
+    {
+        message.classList.remove('visible')
+
     }
     scoreEl.innerHTML = `Score: ${score}`
+}
+
+function increaseTime() {
+    let m = Math.floor(seconds / 60)
+    let s = seconds % 60
+    if (m < 10) {
+        m = `0${m}`
+    }
+    if (s < 10) {
+        s = `0${s}`
+    }
+    timeEl.innerHTML = `Time: ${m}:${s}`
+    seconds++
+    if (score >= 60 && seconds < 30) {
+        message2.classList.add('visible')
+    }
+    if (score < 60 && seconds > 30) {
+        message3.classList.add('visible')
+    }
 }
 
 function getRandomLocation() {
@@ -80,6 +95,6 @@ function getRandomLocation() {
     const height = window.innerHeight
     const x = Math.random() * (width - 200) + 100
     const y = Math.random() * (height - 200) + 100
-    return {x, y}
+    return { x, y }
 }
 
