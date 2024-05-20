@@ -243,23 +243,4 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
- let gameStarted = false
-
- document.addEventListener('keydown', function(event) {
-     if (!gameStarted) {
-         gameStarted = true
-         drawBricks() // Draw bricks when the game starts
-         update()
-     }
- })
-
- function update() {
-     moveBall()
-     movePaddle()
-     draw()
-     requestAnimationFrame(update)
-     if (ball.y + ball.size > canvas.height) {
-         ball.dy = -1 * ball.dy
-         return 0
-     }
- }
+ 
