@@ -243,11 +243,13 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
- document.addEventListener('keydown', startGame)
+ let gameStarted = false;
 
- function startGame(event) {
-     if (event.key !== undefined) {
-         document.removeEventListener('keydown', startGame)
-         update()
-     }
- }
+document.addEventListener('keydown', startGame);
+
+function startGame(event) {
+    if (!gameStarted) {
+        gameStarted = true;
+        update();
+    }
+}
