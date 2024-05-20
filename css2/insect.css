@@ -117,6 +117,29 @@ h1 {
     transition: transform 0.4s ease-in;
 }
 
+.insect {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.insect.caught {
+    transform: translate(-50%, -50%) scale(0);
+}
+
+
+.insect img {
+    width: 100px;
+    height: 100px;
+}
+
+<!-- Added Stuff -->
 .message2 {
     opacity: 0;
     line-height: 1.7;
@@ -161,27 +184,3 @@ h1 {
     opacity: 1;
     transform: translate(-50%, 150%);
 }
-
-
-.insect {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    transform: translate(-50%, -50%) scale(1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.insect.caught {
-    transform: translate(-50%, -50%) scale(0);
-}
-
-
-.insect img {
-    width: 100px;
-    height: 100px;
-}
-
