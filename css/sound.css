@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Charm:wght@400;700&family=Madimi+One&family=Micro+5&display=swap');
+
+* {
+
+    box-sizing: border-box;
+}
+
+body {
+    background-color: Darkblue;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.btn
+{
+    cursor: pointer;
+    background-color: LightBlue;
+    font-size: 1.3rem;
+    padding: 1.5rem 3rem;
+    color: black;
+    cursor: pointer;
+    margin: 15px;
+    border-radius: 50px;
+    border: 0;
+    font-family: "Madimi One", sans-serif;
+    position: relative;
+}
+
+.btn:hover{
+    opacity: 0.9;
+}

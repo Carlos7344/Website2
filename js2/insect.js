@@ -82,3 +82,4 @@ function getRandomLocation() {
     const y = Math.random() * (height - 200) + 100
     return {x, y}
 }
+
