@@ -9,6 +9,7 @@ score = 0
 brickRowCount = 9
 brickColumnCount = 5
 
+ 
 // Create ball properties
 ball = {
     x: canvas.width / 2,
@@ -242,9 +243,3 @@ closeBtn.addEventListener('click', () => {
     })
  }
 
- document.addEventListener('keydown', startGame)
-
- function startGame() {
-     document.removeEventListener('keydown', startGame)
-     update()
- }
