@@ -245,11 +245,11 @@ closeBtn.addEventListener('click', () => {
 
  let gameStarted = false;
 
-document.addEventListener('keydown', startGame);
+ let gameStarted = false;
 
-function startGame(event) {
-    if (!gameStarted) {
-        gameStarted = true;
-        update();
-    }
-}
+ document.addEventListener('keydown', function(event) {
+     if (!gameStarted) {
+         gameStarted = true
+         update()
+     }
+ })
