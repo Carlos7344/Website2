@@ -124,3 +124,9 @@ h1 {
 .notification-container.show {
     transform: translateY(-50px);
 }
+
+.web {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
